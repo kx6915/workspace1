@@ -66,6 +66,17 @@ export function Nav() {
             </a>
           ))}
         </nav>
+        <div className="language-switcher" role="group" aria-label="Language">
+          <button type="button" data-locale="en">
+            EN
+          </button>
+          <button type="button" data-locale="zh-CN">
+            简
+          </button>
+          <button type="button" data-locale="zh-TW">
+            繁
+          </button>
+        </div>
         <div className="nav-actions">
           <button
             onClick={toggleTheme}
