@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import {
   Fraunces,
   Inter,
@@ -48,11 +49,12 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="zh-CN" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${display.variable} ${sans.variable} ${cjk.variable} ${mono.variable}`}
       >
         {children}
+        <Script src="/preview.js?v=i18n-v2" strategy="afterInteractive" />
       </body>
     </html>
   );
