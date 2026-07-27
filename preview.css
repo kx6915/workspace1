@@ -87,6 +87,23 @@ a {
   font-size: 20px;
   cursor: pointer;
 }
+.language-switcher {
+  display: flex;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+}
+.language-switcher button {
+  width: 34px;
+  height: 30px;
+  border-radius: 99px;
+  color: var(--muted);
+  font: 10px var(--sans);
+}
+.language-switcher button.active {
+  background: var(--fg);
+  color: var(--bg);
+}
 .hero {
   min-height: 100svh;
   display: flex;
@@ -578,6 +595,9 @@ footer {
   }
   .nav nav {
     display: none;
+  }
+  .language-switcher button {
+    width: 30px;
   }
   .hero {
     min-height: 85svh;
