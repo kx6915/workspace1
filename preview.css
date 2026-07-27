@@ -206,6 +206,95 @@ a {
 .about > div > p {
   color: var(--secondary);
 }
+.profile-facts {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  margin-top: 64px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+.profile-facts > div {
+  min-width: 0;
+  padding: 20px;
+  background: var(--surface);
+}
+.profile-facts small {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font: 11px monospace;
+}
+.profile-facts strong,
+.profile-facts a {
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+.skills-section {
+  border-top: 1px solid var(--line);
+}
+.skill-rows {
+  border: 1px solid var(--line);
+}
+.skill-rows article {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+}
+.skill-rows article + article {
+  border-top: 1px solid var(--line);
+}
+.skill-rows h3,
+.skill-rows p {
+  margin: 0;
+  padding: 20px 24px;
+}
+.skill-rows h3 {
+  background: var(--accent);
+  color: #fff;
+  font-size: 16px;
+}
+.skill-rows p {
+  background: var(--surface);
+  color: var(--secondary);
+}
+.advantages {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.advantages article {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px;
+  background: var(--surface);
+}
+.advantages b {
+  font: 500 19px var(--serif);
+}
+.advantages p {
+  margin-bottom: 0;
+  color: var(--secondary);
+  font-size: 14px;
+}
+.education {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px 30px;
+  border: 1px solid var(--line);
+  padding: 30px;
+}
+.education h3,
+.education p {
+  margin: 0;
+}
+.education time {
+  color: var(--muted);
+  font-family: monospace;
+}
+.education > p {
+  grid-column: 1/-1;
+  color: var(--secondary);
+}
 .quote {
   font: 500 clamp(27px, 3vw, 36px)/1.4 var(--serif);
   margin: 0;
@@ -305,6 +394,49 @@ a {
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
+.case-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.case {
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  transition: 0.3s;
+}
+.case:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.case header {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+.case header small,
+.case time {
+  color: var(--muted);
+  font: 11px monospace;
+}
+.case h3 {
+  margin: 7px 0 0;
+  font: 500 22px var(--serif);
+}
+.case time {
+  white-space: nowrap;
+}
+.case-bg {
+  color: var(--secondary);
+}
+.case ul {
+  margin-bottom: 0;
+  padding-left: 22px;
+}
+.case li {
+  margin-top: 10px;
+}
 .card {
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -383,6 +515,18 @@ a {
   color: var(--muted);
   font-size: 12px;
 }
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+.contact-links a {
+  padding: 10px 18px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+}
 footer {
   border-top: 1px solid var(--line);
   text-align: center;
@@ -427,6 +571,28 @@ footer {
   .projects {
     grid-template-columns: 1fr;
     gap: 38px;
+  }
+  .profile-facts {
+    grid-template-columns: 1fr 1fr;
+  }
+  .profile-facts > div:last-child {
+    grid-column: 1/-1;
+  }
+  .skill-rows article {
+    grid-template-columns: 1fr;
+  }
+  .advantages {
+    grid-template-columns: 1fr;
+  }
+  .education {
+    grid-template-columns: 1fr;
+  }
+  .education > p {
+    grid-column: auto;
+  }
+  .case header {
+    flex-direction: column;
+    gap: 8px;
   }
   .job {
     grid-template-columns: 48px 1fr;
