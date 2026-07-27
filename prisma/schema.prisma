@@ -1,0 +1,86 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PublishState {
+  draft
+  published
+  archived
+}
+
+model SiteConfig {
+  id                    String   @id @default(cuid())
+  name                  String
+  headline              String?
+  yearsOfExperience     Int?
+  currentCompany        String?
+  currentCompanyLogoUrl String?
+  contactEmail          String?
+  resumePdfUrl          String?
+  bio                   String?
+  socialLinks           Json?
+  updatedAt             DateTime @updatedAt
+}
+
+model Experience {
+  id           String       @id @default(cuid())
+  company      String
+  role         String
+  department   String?
+  location     String?
+  employment   String?
+  startDate    DateTime
+  endDate      DateTime?
+  isCurrent    Boolean      @default(false)
+  description  String?
+  achievements Json?
+  skills       Json?
+  companyUrl   String?
+  logoUrl      String?
+  sortOrder    Int          @default(0)
+  state        PublishState @default(draft)
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+model Project {
+  id          String       @id @default(cuid())
+  slug        String       @unique
+  title       String
+  summary     String
+  body        String?
+  role        String?
+  startDate   DateTime?
+  endDate     DateTime?
+  coverUrl    String?
+  tags        Json?
+  links       Json?
+  featured    Boolean      @default(false)
+  sortOrder   Int          @default(0)
+  state       PublishState @default(draft)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model CustomSection {
+  id        String       @id @default(cuid())
+  slug      String       @unique
+  title     String
+  body      String?
+  sortOrder Int          @default(0)
+  state     PublishState @default(draft)
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+}
+
+model Snapshot {
+  id        String   @id @default(cuid())
+  payload   Json
+  note      String?
+  createdAt DateTime @default(now())
+}
