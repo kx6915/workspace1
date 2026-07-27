@@ -33,12 +33,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   ),
-  title: "王凯 · 大模型训练与 AI Agent 应用",
+  title: "王凯 · 大模型运营专家",
   description:
     "王凯的个人主页，展示大模型训练、AI Agent 应用、电商治理经历与代表项目。",
   openGraph: {
     title: "王凯 · Personal Homepage",
-    description: "大模型训练与 AI Agent 应用 @ 快手",
+    description: "大模型运营专家 @ 四川快手——大模型训练",
     type: "website",
   },
   twitter: { card: "summary_large_image" },

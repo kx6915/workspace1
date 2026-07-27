@@ -69,7 +69,7 @@ export default function Home() {
               <div>
                 <p>{profile.bio}</p>
                 <p>
-                  2022 年本科毕业。先后在抖音电商与快手从事 AI
+                  2022 年本科毕业。先后在字节跳动与四川快手从事 AI
                   相关业务，既做过风险治理的机审能力建设，也持续探索
                   Agent、Workflow、Skill 与模型训练的规模化应用。
                 </p>

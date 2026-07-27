@@ -4,7 +4,7 @@ import { Copy } from "lucide-react";
 import { useState } from "react";
 
 export function Contact() {
-  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "wangkai031wy@163.com";
   const resume = process.env.NEXT_PUBLIC_RESUME_URL;
   const [copied, setCopied] = useState(false);
   const copy = async () => {
