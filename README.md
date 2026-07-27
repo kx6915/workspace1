@@ -10,7 +10,7 @@ cp .env.example .env
 npm run dev
 ```
 
-访问 `http://localhost:3000`。尚未提供的邮箱、CV、学校及社交链接在配置前不会显示或使用虚构值。
+访问 `http://localhost:3000`。尚未提供的邮箱、CV、学校及社交链接在配置前不会显示或使用虚构值 。
 
 ## 常用命令
 
