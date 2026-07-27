@@ -5,6 +5,7 @@ import { useState } from "react";
 
 export function Contact() {
   const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "wangkai031wy@163.com";
+  const phone = "19232937392";
   const resume = process.env.NEXT_PUBLIC_RESUME_URL;
   const [copied, setCopied] = useState(false);
   const copy = async () => {
@@ -30,6 +31,9 @@ export function Contact() {
             联系我 →
           </a>
         )}
+        <a className="button secondary" href={`tel:${phone}`}>
+          {phone}
+        </a>
         {resume && (
           <a
             className="button secondary"
