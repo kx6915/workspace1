@@ -101,7 +101,14 @@ export default function Home() {
                   <div className="experience-body">
                     <div className="experience-title">
                       <div>
-                        <h3>{item.company}</h3>
+                        <h3>
+                          <Link
+                            className="company-link"
+                            href={`/companies/${item.slug}`}
+                          >
+                            {item.company} <ArrowRight />
+                          </Link>
+                        </h3>
                         <h4>{item.role}</h4>
                       </div>
                       <p className="date">
