@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { experiences } from "@/lib/content";
 
 export default function ExperiencePage() {
@@ -14,7 +14,11 @@ export default function ExperiencePage() {
         {experiences.map((item) => (
           <article className="experience-detail" key={item.company}>
             <p className="date">{item.date}</p>
-            <h2>{item.company}</h2>
+            <h2>
+              <Link className="company-link" href={`/companies/${item.slug}`}>
+                {item.company} <ArrowRight />
+              </Link>
+            </h2>
             <h3>{item.role}</h3>
             <p>{item.description}</p>
             <ul>

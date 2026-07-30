@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { projects } from "@/lib/content";
 
 export function generateStaticParams() {
@@ -27,22 +27,44 @@ export default function ProjectDetail({
         <p className="micro">{project.date} · Case Study</p>
         <h1>{project.title}</h1>
         <p className="lead">{project.summary}</p>
+        <Link
+          className="company-reference"
+          href={`/companies/${project.companySlug}`}
+        >
+          {project.company} · {project.role} <ArrowRight />
+        </Link>
         <div className="pills">
           {project.tags.map((tag) => (
             <span key={tag}>{tag}</span>
           ))}
         </div>
         <hr />
-        <h2>核心成果</h2>
-        <ul className="metrics">
-          {project.metrics.map((metric) => (
-            <li key={metric}>{metric}</li>
-          ))}
-        </ul>
-        <h2>方法</h2>
-        <p>
-          从业务问题出发，完成数据分析、目标拆解、能力盘点与链路设计；通过小流量验证持续校准效果，再将有效方案标准化、产品化并推广复用。
-        </p>
+        <section className="case-section">
+          <p className="micro">01 · Context</p>
+          <h2>项目背景</h2>
+          <p>{project.background}</p>
+        </section>
+        <section className="case-section">
+          <p className="micro">02 · Breakdown</p>
+          <h2>拆解与完成思路</h2>
+          <ol className="approach-list">
+            {project.approach.map((step, index) => (
+              <li key={step}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <p>{step}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+        <section className="case-section result-panel">
+          <p className="micro">03 · Impact</p>
+          <h2>数据与成果</h2>
+          <ul className="metrics">
+            {project.metrics.map((metric) => (
+              <li key={metric}>{metric}</li>
+            ))}
+          </ul>
+        </section>
       </article>
     </main>
   );
