@@ -91,7 +91,12 @@ export default function Home() {
             <SectionHeading eyebrow="02 · Experience" title="职业经历" />
             <div className="timeline">
               {experiences.map((item, index) => (
-                <article className="experience-item" key={item.company}>
+                <Link
+                  aria-label={`查看${item.company}任职经历与全部项目`}
+                  className="experience-item"
+                  href={`/companies/${item.slug}`}
+                  key={item.company}
+                >
                   <div className="logo-column">
                     <div className="company-logo">{item.company[0]}</div>
                     {index < experiences.length - 1 && (
@@ -102,12 +107,9 @@ export default function Home() {
                     <div className="experience-title">
                       <div>
                         <h3>
-                          <Link
-                            className="company-link"
-                            href={`/companies/${item.slug}`}
-                          >
+                          <span className="company-link">
                             {item.company} <ArrowRight />
-                          </Link>
+                          </span>
                         </h3>
                         <h4>{item.role}</h4>
                       </div>
@@ -134,7 +136,7 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                </article>
+                </Link>
               ))}
             </div>
           </div>
