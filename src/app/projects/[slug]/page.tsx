@@ -45,7 +45,19 @@ export default function ProjectDetail({
           <p>{project.background}</p>
         </section>
         <section className="case-section">
-          <p className="micro">02 · Breakdown</p>
+          <p className="micro">02 · Role & Goals</p>
+          <h2>我的角色与目标</h2>
+          <p>{project.roleDescription}</p>
+          {project.goals.length > 0 && (
+            <ul className="case-detail-list">
+              {project.goals.map((goal) => (
+                <li key={goal}>{goal}</li>
+              ))}
+            </ul>
+          )}
+        </section>
+        <section className="case-section">
+          <p className="micro">03 · Breakdown</p>
           <h2>拆解与完成思路</h2>
           <ol className="approach-list">
             {project.approach.map((step, index) => (
@@ -56,8 +68,17 @@ export default function ProjectDetail({
             ))}
           </ol>
         </section>
+        <section className="case-section">
+          <p className="micro">04 · Technology</p>
+          <h2>技术栈与工具</h2>
+          <ul className="case-detail-list">
+            {project.tools.map((tool) => (
+              <li key={tool}>{tool}</li>
+            ))}
+          </ul>
+        </section>
         <section className="case-section result-panel">
-          <p className="micro">03 · Impact</p>
+          <p className="micro">05 · Impact</p>
           <h2>数据与成果</h2>
           <ul className="metrics">
             {project.metrics.map((metric) => (

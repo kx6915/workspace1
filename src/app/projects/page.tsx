@@ -19,24 +19,25 @@ export default function ProjectsPage() {
         <div className="project-grid">
           {projects.map((project) => (
             <Link
-              className="project-card"
+              className="project-summary-card"
               href={`/projects/${project.slug}`}
               key={project.slug}
             >
-              <div className="project-cover">
-                <span>{project.marker}</span>
+              <div className="project-title">
+                <h3>{project.title}</h3>
+                <ArrowRight />
               </div>
-              <div className="project-content">
-                <div className="project-title">
-                  <h3>{project.title}</h3>
-                  <ArrowRight />
-                </div>
-                <p>{project.summary}</p>
-                <div className="pills">
-                  {project.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
+              <p className="project-card-copy">
+                <strong>背景</strong>
+                {project.background}
+              </p>
+              <div className="project-card-copy project-card-result">
+                <strong>成果</strong>
+                <ul>
+                  {project.metrics.map((metric) => (
+                    <li key={metric}>{metric}</li>
                   ))}
-                </div>
+                </ul>
               </div>
             </Link>
           ))}

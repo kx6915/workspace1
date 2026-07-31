@@ -544,6 +544,55 @@ button:focus-visible {
 .project-card:hover .project-title svg {
   transform: translateX(4px);
 }
+.project-summary-card {
+  display: flex;
+  min-height: 360px;
+  flex-direction: column;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-elevated);
+  text-decoration: none;
+  transition:
+    border-color var(--motion-medium),
+    transform var(--motion-medium) var(--ease-out-expo),
+    box-shadow var(--motion-medium);
+}
+.project-summary-card:hover,
+.project-summary-card:focus-visible {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+.project-summary-card:hover .project-title svg,
+.project-summary-card:focus-visible .project-title svg {
+  transform: translateX(4px);
+}
+.project-card-copy {
+  margin: 28px 0 0;
+  color: var(--fg-secondary);
+}
+.project-card-copy strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--fg-muted);
+  font: var(--text-micro) var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.project-card-result {
+  margin-top: auto;
+  padding-top: 28px;
+  color: var(--fg);
+}
+.project-card-result ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.project-card-result li + li {
+  margin-top: 6px;
+}
 .project-content p {
   color: var(--fg-muted);
   font-size: var(--text-small);
@@ -756,6 +805,14 @@ footer {
   margin: 0;
   color: var(--fg-secondary);
 }
+.case-detail-list {
+  margin: 24px 0 0;
+  padding-left: 22px;
+  color: var(--fg-secondary);
+}
+.case-detail-list li + li {
+  margin-top: 10px;
+}
 .result-panel {
   padding: 32px;
   border: 1px solid var(--border);
@@ -866,6 +923,13 @@ footer {
   }
   .project-grid {
     grid-template-columns: 1fr;
+  }
+  .project-summary-card {
+    min-height: auto;
+    padding: 24px;
+  }
+  .project-card-result {
+    margin-top: 28px;
   }
   .experience-item {
     grid-template-columns: 48px 1fr;
