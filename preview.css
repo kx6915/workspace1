@@ -470,6 +470,22 @@ a {
 .case time {
   white-space: nowrap;
 }
+.case-list .case header small,
+.case-list .case time,
+.case-list .case li:not(:last-child) {
+  display: none;
+}
+.case-list .case ul {
+  margin-top: auto;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+.case-list .case li:last-child {
+  padding-left: 0;
+}
+.case-list .case li:last-child::before {
+  display: none;
+}
 .case-bg {
   color: var(--secondary);
 }
@@ -716,9 +732,42 @@ footer {
 .detail-project-card p {
   color: var(--secondary);
 }
+.detail-card-copy {
+  margin: 24px 0 0;
+}
+.detail-card-copy b {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font: 11px monospace;
+  letter-spacing: 0.08em;
+}
+.detail-card-result {
+  margin-top: auto;
+  padding-top: 24px;
+  color: var(--fg) !important;
+}
+.detail-card-result ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.detail-card-result li + li {
+  margin-top: 6px;
+}
 .detail-project-card > span {
   color: var(--accent);
   font-size: 12px;
+}
+.detail-subheading {
+  margin: 40px 0 12px;
+  font: 500 22px var(--serif);
+}
+.detail-section > ul {
+  padding-left: 22px;
+  color: var(--secondary);
+}
+.detail-section > ul li + li {
+  margin-top: 10px;
 }
 .project-detail .detail-hero {
   border-bottom: 1px solid var(--line);

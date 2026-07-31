@@ -10,6 +10,7 @@ export const revalidate = 60;
 export default function Home() {
   const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
   const resume = process.env.NEXT_PUBLIC_RESUME_URL;
+  const featuredProjects = projects.filter((project) => project.featured);
   return (
     <>
       <Nav />
@@ -146,28 +147,27 @@ export default function Home() {
           <div className="container">
             <SectionHeading eyebrow="03 · Featured Projects" title="代表项目" />
             <div className="project-grid">
-              {projects.map((project) => (
+              {featuredProjects.map((project) => (
                 <Link
-                  className="project-card"
+                  className="project-summary-card"
                   href={`/projects/${project.slug}`}
                   key={project.slug}
                 >
-                  <div className="project-cover">
-                    <span>{project.marker}</span>
-                    <small>0{projects.indexOf(project) + 1}</small>
+                  <div className="project-title">
+                    <h3>{project.title}</h3>
+                    <ArrowRight />
                   </div>
-                  <div className="project-content">
-                    <div className="project-title">
-                      <h3>{project.title}</h3>
-                      <ArrowRight />
-                    </div>
-                    <p>{project.summary}</p>
-                    <time>{project.date}</time>
-                    <div className="pills">
-                      {project.tags.map((tag) => (
-                        <span key={tag}>{tag}</span>
+                  <p className="project-card-copy">
+                    <strong>背景</strong>
+                    {project.background}
+                  </p>
+                  <div className="project-card-copy project-card-result">
+                    <strong>成果</strong>
+                    <ul>
+                      {project.metrics.map((metric) => (
+                        <li key={metric}>{metric}</li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </Link>
               ))}
